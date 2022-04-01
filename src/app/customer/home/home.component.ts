@@ -58,7 +58,7 @@ export class HomeComponent implements OnInit {
     this.commonService.getItems().subscribe((data: Items[]) => {
       this.items = data;
       this.items2 = data;
-
+      console.log("all Items= "+JSON.stringify(this.items2))
     })
     // this.items2=this.commonService.filterData(); 
 

@@ -39,19 +39,19 @@
               </li>
               -->
           <li class=" dropdown">
-            <a class="nav-link dropdown-toggle " (click)="filterMy('foods')" >
+            <a class="nav-link dropdown-toggle " (click)="filterMy('foods')"  >
               Foods
             </a>
             <div class="dropdown-content">
-              <a *ngFor="let data of foods" (click)="filterMy(data.value)">{{data.label}}</a>
+              <a *ngFor="let data of foods" (click)="filterMy(data.value)" >{{data.label}}</a>
             </div>
           </li>
           <li class=" dropdown">
-            <a class="nav-link dropdown-toggle " (click)="filterMy('electronics')">
+            <a class="nav-link dropdown-toggle " (click)="filterMy('electronics')" >
               Electronics
             </a>
             <div class="dropdown-content">
-              <a *ngFor="let data of electronics"   (click)="filterMy(data.value)">{{data.label}}</a>
+              <a *ngFor="let data of electronics"   (click)="filterMy(data.value)" >{{data.label}}</a>
             </div>
           </li>
           <li class=" dropdown">
