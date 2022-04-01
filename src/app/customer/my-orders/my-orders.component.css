@@ -31,3 +31,12 @@ text-decoration: none;
     text-decoration: none;
     color:red;
 }
+.myOrderImages{
+    height: 75px; width:70%!important;min-width: 35px!important;
+    
+}
+@media (max-width: 500px) {
+    .myOrderImages{
+        height: 200px; width:70%!important;min-width: 35px!important;
+    }
+  }
