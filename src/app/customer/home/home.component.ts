@@ -99,9 +99,10 @@ export class HomeComponent implements OnInit {
   logout() {
     localStorage.removeItem("email");
     localStorage.removeItem("userType");
-   
-    this.router.navigate(['']);
     window.location.reload();
+    window.location.reload();
+    this.router.navigate(['']);
+   
 
   }
   changeLoginOption() {

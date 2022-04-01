@@ -117,7 +117,9 @@ export class ProfileComponent implements OnInit {
   logout() {
     localStorage.removeItem("email");
     localStorage.removeItem("userType");
+    window.location.reload();
     this.router.navigate(['']);
+    window.location.reload();
 
   }
   myCart() {
