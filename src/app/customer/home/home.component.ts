@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
   rkk
   @Output() closeModalEvent = new EventEmitter<boolean>();
   @ViewChild('exampleModal') exampleModal: ElementRef;
-
+  @ViewChild('closebutton') closebutton;
   constructor(private commonService: CommonService, private router: Router, private http: HttpClient) { }
   // time = new Observable(observer =>
   //   setInterval(() => observer.next(new Date().toString()), 2000)
@@ -99,7 +99,9 @@ export class HomeComponent implements OnInit {
   logout() {
     localStorage.removeItem("email");
     localStorage.removeItem("userType");
+    window.location.reload();
     this.router.navigate(['']);
+    
 
   }
   changeLoginOption() {
@@ -119,38 +121,52 @@ export class HomeComponent implements OnInit {
     else {
       if (email1.password === this.user.password) {
         if (email1.isUserVerified) {
+          
+         
           if (email1.userType === "customer") {
             localStorage.setItem("email", email1.email);
             localStorage.setItem("userType", email1.userType);
             localStorage.setItem("userName", email1.name);
+            window.location.reload();
+            //  this.router.navigate(['']);
             this.router.navigate(['home']);
             this.logedin = true;
+            
           }
           if (email1.userType === "seller") {
             localStorage.setItem("email", email1.email);
             localStorage.setItem("userType", email1.userType);
             localStorage.setItem("userName", email1.name);
+            window.location.reload(); 
+            // this.router.navigate(['']);
             this.router.navigate(['sellerProfile']);
             this.logedin = true;
           }
 
         }
         else {
+          
+          // this.closeModalEvent.emit(false); 
+          // (this.exampleModal.nativeElement).modal('hide');
           alert("please veryfy your account..")
           this.user=new Help();
           this.user=email1
           this.veryfyAcoountform=true
 
         }
-
+     
       }
       else {
+        // this.closeModalEvent.emit(false); 
+        // (this.exampleModal.nativeElement).modal('hide');
+       
         console.log("password does not match")
       }
     }
+    this.closebutton.nativeElement.click();
+    // this.closeModalEvent.emit(false); 
+            // this.exampleModal.nativeElement.modal('hide');
     console.log("users =" + JSON.stringify(data))
-    this.closeModalEvent.emit(false); 
-    (this.exampleModal.nativeElement).modal('hide');
   }
   addUser(data) {
     // this.user.isUserVerified=false;
