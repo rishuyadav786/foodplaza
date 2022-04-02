@@ -169,6 +169,7 @@ font-style: cursive;
   .addThisClass{
     display: block;
     color:red;
+    width:200px;
   }
   .removethisclass{
     display: none;
