@@ -14,7 +14,7 @@
                       class="d-block w-100" alt="..." style="height: 50px; width:40%; margin:1px;padding:1px;"></a>
                   <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"
                     aria-controls="v-pills-profile" aria-selected="false">
-                    <img src="assets/a.jpg" class="d-block w-100" alt="..."
+                    <img src="assets/images/banner7.jpg" class="d-block w-100" alt="..."
                       style="height: 50px; width:40%; margin:1px;padding:1px;">
                   </a>
                   <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
@@ -24,7 +24,7 @@
                   </a>
                   <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
                     aria-controls="v-pills-settings" aria-selected="false">
-                    <img src="assets/b.jpg" class="d-block w-100" alt="..."
+                    <img src="assets/images/banner5.jpg" class="d-block w-100" alt="..."
                       style="height: 50px; width:40%; margin:1px;padding:1px;">
                   </a>
                 </div>
@@ -38,7 +38,7 @@
                       style="height: 350px; width:70%!important; margin-left:15%;padding:5px;">
                   </div>
                   <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                    <img src="assets/a.jpg" class="d-block w-100" alt="..."
+                    <img src="assets/images/banner7.jpg" class="d-block w-100" alt="..."
                       style="height: 350px; width:70%!important; margin-left:15%;padding:5px;">
 
                   </div>
@@ -50,7 +50,7 @@
                   </div>
                   <div class="tab-pane fade" id="v-pills-settings" role="tabpanel"
                     aria-labelledby="v-pills-settings-tab">
-                    <img src="assets/b.jpg" class="d-block w-100" alt="..."
+                    <img src="assets/images/banner5.jpg" class="d-block w-100" alt="..."
                     style="height: 350px; width:70%!important; margin-left:15%;padding:5px;">
 
                   </div>
@@ -70,7 +70,7 @@
           </div>
           <div class="col-md-6">
             <div class="card-body">
-              <h5 class="card-title">{{item.name}} ({{item.color}})</h5>
+              <h5 class="card-title">{{item.name}} <span *ngIf="item.color">({{item.color}})</span></h5>
               <small><b>Sold by </b> <i style="color:rgb(82, 12, 12)">{{item.sellerEmail}}</i></small><br/>
               <div class="col-sm-9">
                 <h5 style="color:green">{{item.price | currency:'INR':'symbol-narrow':'4.2-2'}}</h5>
