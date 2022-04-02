@@ -499,7 +499,7 @@ app.get("/sendmail1", (req, res) => {
 // define a sendmail endpoint, which will send emails and response with the corresponding status
 
 
-app.post("/sendmail", (req, res) => {
+app.post("/api/sendmail", (req, res) => {
     console.log("request came");
     let user = req.body;
     console.log(user);

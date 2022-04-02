@@ -185,7 +185,7 @@ export class HomeComponent implements OnInit {
     this.user.randomNumber = Math.floor(Math.random() * (999999 - 100000)) + 100000;
     this.randomNumber = this.user.randomNumber
     console.log("users to be verified = " + JSON.stringify(this.user))
-    this.http.post<any>('http://localhost:4000/sendmail', this.user).subscribe(
+    this.http.post<any>('https://fdplaza.herokuapp.com/api/sendmail/', this.user).subscribe(
       (res) => console.log(res),
       (err) => console.log(err)
     );
@@ -201,7 +201,7 @@ export class HomeComponent implements OnInit {
         this.fpuser.randomNumber = Math.floor(Math.random() * (999999 - 100000)) + 100000;
         this.randomNumber = this.fpuser.randomNumber
         // console.log("users to be verified = " + JSON.stringify(this.user))
-        this.http.post<any>('http://localhost:4000/sendmail', this.fpuser).subscribe(
+        this.http.post<any>('https://fdplaza.herokuapp.com/api/sendmail/', this.fpuser).subscribe(
           (res) => console.log(res),
           (err) => console.log(err)
         );

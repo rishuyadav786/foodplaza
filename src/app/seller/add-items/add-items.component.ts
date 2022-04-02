@@ -220,7 +220,7 @@ onSubmit(){
   const formData = new FormData();
   formData.append('file', this.images);
 
-  this.http.post<any>('http://localhost:4000/file', formData).subscribe(
+  this.http.post<any>('https://fdplaza.herokuapp.com/file', formData).subscribe(
     (res) => console.log(res),
     (err) => console.log(err)
   );
@@ -232,7 +232,7 @@ onMultipleSubmit(){
     formData.append('files', img);
   }
 
-  this.http.post<any>('http://localhost:4000/multipleFiles', formData).subscribe(
+  this.http.post<any>('https://fdplaza.herokuapp.com/multipleFiles', formData).subscribe(
     (res) => console.log(res),
     (err) => console.log(err)
   );
@@ -260,7 +260,7 @@ sendMail(data){
       "address": "4 no Railway Gate, Agarpara Kolkata-700056"
     }];
 
-  this.http.post<any>('http://localhost:4000/sendmail', users).subscribe(
+  this.http.post<any>('https://fdplaza.herokuapp.com/api/sendmail/', users).subscribe(
     (res) => console.log(res),
     (err) => console.log(err)
   );

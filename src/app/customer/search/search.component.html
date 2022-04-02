@@ -308,6 +308,7 @@ $('.mdb-select').materialSelect();
           </div>
         </div> -->
         <div class="container" *ngIf="data.category=='electronics'">
+          <h6>Search results for {{SearchText}} </h6>
           <div class="row">
             <div class="col-sm-3">
               <img src="assets/{{data.images}}" class="d-block w-100" alt="..." style="height: 190px;width:45%!important;margin-left: 20%;">
@@ -343,7 +344,7 @@ $('.mdb-select').materialSelect();
     </div>
 
     
-  <div class="container" >
+  <div class="container"  >
     <h6>Search results for {{SearchText}} </h6>
     <hr/>
     <div class="row" >
