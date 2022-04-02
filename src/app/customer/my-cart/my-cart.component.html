@@ -91,7 +91,11 @@
                 </div>
                 <!-- <small>Quantity = {{data.quantity}}</small> -->
                 <!-- <p class="mb-1">{{data.quantity}}</p> -->
-                <p class="mb-1">Total = ₹{{data.price*data.quantity}}</p>
+     
+                
+                <p class="mb-1">Total = ₹ <span *ngIf="data.quantity else zeroQty"> {{data.price*data.quantity}}</span><ng-template #zeroQty>
+                0
+                </ng-template></p>
               </div>
               <div class="col-md-4">
                 <div>
