@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { CommonService } from '../common.service';
 import { Items } from '../help';
 import { Router } from '@angular/router';
@@ -20,6 +20,9 @@ export class ProfileComponent implements OnInit {
   userType
   userName
   userisSeller: boolean = false
+  public size700_1020 = false;
+  classFlag = false;
+  // @HostListener('window:resize', ['$event'])
   constructor(private commonService: CommonService, private router: Router,) {
     // window.location.reload();
     // this.router.routeReuseStrategy.shouldReuseRoute = function () {
@@ -34,6 +37,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  
     this.email = localStorage.getItem("email");
     this.userName = localStorage.getItem("userName");
     this.userType = localStorage.getItem("userType");

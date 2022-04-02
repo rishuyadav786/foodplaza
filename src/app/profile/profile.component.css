@@ -160,3 +160,17 @@ font-style: cursive;
   border-color: #fff transparent;   
  
 }
+
+.addThisClass{
+  display: none;
+  color:black;
+}
+@media (max-width: 786px) {
+  .addThisClass{
+    display: block;
+    color:red;
+  }
+  .removethisclass{
+    display: none;
+  }
+}
