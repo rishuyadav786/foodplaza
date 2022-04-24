@@ -289,7 +289,7 @@ app.get("/api/getUser", function (req, res) {
 });
 
 app.get("/api/getUserById", function (req, res) {
-    User.findOne({id: req.params.email}, function (err, data) {
+    User.findOne({id: req.body.email}, function (err, data) {
         if (err) {
             res.send(err)
         }
