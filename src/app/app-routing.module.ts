@@ -16,6 +16,7 @@ import { OrderDetailsComponent } from './customer/order-details/order-details.co
 import { UserAccountComponent } from './customer/user-account/user-account.component';
 import { SellerAccountComponent } from './seller/seller-account/seller-account.component';
 import { OrderAcceptedComponent } from './seller/order-accepted/order-accepted.component';
+import{AuthGuard} from './auth.guard';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', component: HomeComponent },
@@ -28,8 +29,8 @@ const routes: Routes = [
   { path: 'seller-account', component: SellerAccountComponent },
   { path: 'order-accepted', component: OrderAcceptedComponent },
   
-  { path: 'search/:brand', component: SearchComponent },
-  { path: 'search', component: SearchComponent },
+  { path: 'search/:brand', component: SearchComponent,canActivate:[AuthGuard] },
+  { path: 'search', component: SearchComponent,canActivate:[AuthGuard] },
   { path: 'myCart', component: MyCartComponent },
   { path: 'additems', component: AddItemsComponent },
   { path: 'productlist', component: ProductListComponent },

@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit {
   confirmPassword:boolean=false
   pages
   rkk
+  currentUser: Help = new Help();
   @Output() closeModalEvent = new EventEmitter<boolean>();
   @ViewChild('exampleModal') exampleModal: ElementRef;
   @ViewChild('closebutton') closebutton;
@@ -39,6 +40,26 @@ export class HomeComponent implements OnInit {
   //   setInterval(() => observer.next(new Date().toString()), 2000)
   // );
   ngOnInit() {
+    this.login2();
+
+    const observable = Observable.create(observer => {
+      console.log('Text inside an observable');
+      observer.next('Hello world!');
+      observer.complete();
+      observer.next('Hello Rishu!');
+    });
+
+
+    console.log('Before calling subscribe on an Observable');
+
+    observable.subscribe((data)=> console.log(data));
+
+    console.log('After calling subscribe on an Observable');
+
+
+
+
+
     window.scrollTo(0,300);
     if (localStorage.getItem("email")) {
       if (localStorage.getItem("userType") === "customer") {
@@ -110,9 +131,20 @@ export class HomeComponent implements OnInit {
     this.forgotpassword=false
     this.veryfyAcoountform=false
   }
-  login(data) {
-    let email1: any = this.users.find(res => res.email === this.user.email)
 
+
+  login2(){
+    this.commonService.getById(this.user.email).subscribe((data: Help) => {
+      this.currentUser = data;
+      console.log("one user data= "+JSON.stringify(data))
+      // this.sellers = data.filter(e => e.userType == 'seller');
+
+    })
+  }
+  login(data) {
+    this.login2();
+    // let email1: any = this.users.find(res => res.email === this.user.email)
+let email1=this.currentUser;
     console.log("users details 1 =" + JSON.stringify(this.users))
     console.log("users details 2 =" + JSON.stringify(email1))
     if (!email1) {

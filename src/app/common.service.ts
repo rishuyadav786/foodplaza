@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Help,Items,myItems,orderDetails,Orders,myCart,Reviews} from '././help';
 // import { Observable } from 'rxjs';
-import { Observable, throwError } from 'rxjs';
+import { Observable, Subscription, throwError } from 'rxjs';
 // import { HttpClient } from '@angular/common/http';
 // import {httpClientModule,HttpClient} from '@angular/common/http';
 import { map } from "rxjs/operators"
@@ -11,6 +11,7 @@ import { HttpClient, HttpErrorResponse, HttpEvent, HttpEventType } from '@angula
   providedIn: 'root'
 })
 export class CommonService {
+
   users: Help[] = [];
   user: Help = new Help()
   items: Items[] = [];
@@ -33,7 +34,9 @@ getAll(): Observable<Help[]> {
 }
 
 getById(id) {
-    return <any>this.http.get("http://localhost:3000/users/" + id).pipe(map((Response: any) => Response));
+
+  // return this.http.get(`api/leagues/${id}`).map(res => res.json());
+    return <any>this.http.get(`${this.webUrl}`+`api/getUserById/${id}`).pipe(map((Response: any) => Response));
 }
 // addUsers(users: any) {
 //     this.http.post("http://localhost:3000/users", users).subscribe();

@@ -113,6 +113,8 @@ placeOrder1(item){
     console.log("id for delete 2"+JSON.stringify(dId[0]._id))
     let kkr=this.myCart.find(e=>e._id==dId[0]._id)
     this.commonService.removeProduct(kkr);
+   
+    // window.location.reload();
     // this.commonService.removeProduct(data).subscribe((data: myCart[]) => {
     //   this.ngOnInit();
       

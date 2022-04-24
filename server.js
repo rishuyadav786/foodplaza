@@ -288,6 +288,29 @@ app.get("/api/getUser", function (req, res) {
     })
 });
 
+app.get("/api/getUserById", function (req, res) {
+    User.findOne({id: req.params.email}, function (err, data) {
+        if (err) {
+            res.send(err)
+        }
+        else {
+            console.log("User data retrieved successfully")
+            res.send(data)
+
+        }
+    })
+});
+
+// router.route('/:league_id')
+//      .get(function(req,res){
+//          League.findOne({id: req.params.league_id})
+//      .exec(function(err,docs){
+//          if(err)
+//          res.send(err);
+//      res.json(docs);
+//   })});
+
+
 app.get("/api/getItems", function (req, res) {
     Item.find({}, function (err, data) {
         if (err) {
