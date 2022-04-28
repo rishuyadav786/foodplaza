@@ -33,8 +33,14 @@ getAll(): Observable<Help[]> {
   return <any>this.http.get( `${this.webUrl}`+"api/getUser/").pipe(map((Response: any) => Response));
 }
 
+callApi(): Observable<any> {
+  return this.http
+    .get('https://dog.ceo/api/breeds/image/random')
+    .pipe(map((res) => res));
+}
 getById(id) {
 
+  console.log("from service get by id"+id)
   // return this.http.get(`api/leagues/${id}`).map(res => res.json());
     return <any>this.http.get(`${this.webUrl}`+`api/getUserById/${id}`).pipe(map((Response: any) => Response));
 }

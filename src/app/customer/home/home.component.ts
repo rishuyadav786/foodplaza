@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
       observer.next('Hello Rishu!');
     });
 
-
+  
     console.log('Before calling subscribe on an Observable');
 
     observable.subscribe((data)=> console.log(data));
@@ -57,7 +57,9 @@ export class HomeComponent implements OnInit {
     console.log('After calling subscribe on an Observable');
 
 
-
+    this.commonService.callApi().subscribe((data) => {
+      console.log(data)
+    });
 
 
     window.scrollTo(0,300);
@@ -143,8 +145,8 @@ export class HomeComponent implements OnInit {
   }
   login(data) {
     this.login2();
-    // let email1: any = this.users.find(res => res.email === this.user.email)
-let email1=this.currentUser;
+    let email1: any = this.users.find(res => res.email === this.user.email)
+// let email1=this.currentUser;
     console.log("users details 1 =" + JSON.stringify(this.users))
     console.log("users details 2 =" + JSON.stringify(email1))
     if (!email1) {
